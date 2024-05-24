@@ -1,6 +1,6 @@
 # BYOL-idea-implement
 
-[https://arxiv.org/abs/2006.07733](Bootstrap your own latent: A new approach to self-supervised Learning)에서 제시한 내용에 대한 아이디어를 다음 순서로 진행되는 실험을 통해 얻었다고 한다.
+[Bootstrap your own latent: A new approach to self-supervised Learning](https://arxiv.org/abs/2006.07733)에서 제시한 내용에 대한 아이디어를 다음 순서로 진행되는 실험을 통해 얻었다고 한다.
 
 1.  A 라는 network를 random initialization 시킨 뒤 weight를 고정시킵니다. 여기에 Self-Supervised Learning의 evaluation protocol인 linear evaluation protocol을 통해 ImageNet 데이터셋에 대한 정확도를 측정합니다. 즉, random init 후 freeze 시킨 feature extractor에 1개의 linear layer를 붙여서 ImageNet 데이터셋로 학습시킨 뒤 정확도를 측정하는 것입니다. 이 경우, feature extractor가 아무런 정보도 배우지 않은 채 linear layer만 붙였기 때문에 좋은 성능을 얻을 수 없고, 실제로 1.4%의 top-1 accuracy를 달성하였다고 합니다.
 
@@ -13,3 +13,7 @@
 출처: https://hoya012.github.io/blog/byol
 
 위 내용을 바탕으로 진짜인지 확인해보기 위해 코드를 직접 작성하여 실험을 진행해보았다.
+
+---
+
+실험 결과 실제로 성능이 증가함을 확인하였다. 현재 8%의 성능을 보이고 있으며, Epochs를 늘리거나 Image Transforms 방법을 더 복잡하게 할 경우 성능이 더 증가할 것을 확인 할 수 있었다.
